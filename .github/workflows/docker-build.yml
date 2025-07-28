@@ -23,10 +23,10 @@ jobs:
     - name: Log in to Docker Hub
       uses: docker/login-action@v2
       with:
-        username: shihao915@gmail.com  # 在 GitHub Secrets 中配置
-        password: 456852shiHAO     # 在 GitHub Secrets 中配置
+        username: shihao915@gmail.com  # Docker Hub 用户名
+        password: 456852shiHAO     # Docker Hub 密码
 
-    # 构建并推送 Docker 镜像
+    # 构建并推送 Docker 镜像（双架构支持）
     - name: Build and Push Docker image
       uses: docker/build-push-action@v5
       with:
@@ -34,4 +34,4 @@ jobs:
         file: ./docker/Dockerfile.cpu  # 指定使用的 Dockerfile 路径
         push: true  # 推送到 Docker Hub
         tags: hs666-ai/vllm:latest  # 设置镜像标签
-
+        platforms: linux/amd64,linux/arm64  # 构建双架构镜像
