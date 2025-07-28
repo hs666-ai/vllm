@@ -34,4 +34,5 @@ jobs:
         file: ./docker/Dockerfile.cpu  # 指定使用的 Dockerfile 路径
         push: true  # 推送到 Docker Hub
         tags: hs666-ai/vllm:latest  # 设置镜像标签
-        platforms: linux/amd64,linux/arm64  # 构建双架构镜像
+        platforms: linux/amd64  # 构建amd64架构镜像
+        #platforms: linux/amd64,linux/arm64  # 构建双架构镜像
